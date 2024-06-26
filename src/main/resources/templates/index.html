@@ -2,13 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <title>Home Page</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins',sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url("https://img.freepik.com/free-photo/3d-render-network-communications-background-with-low-poly-plexus-design_1048-15687.jpg?w=826&t=st=1719435315~exp=1719435915~hmac=2184a30ffe0e3f0351db0c2986599a3944794b930d702a2dd3813dc3d9226402");
+            background-size: cover;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,7 +20,7 @@
             text-align: center;
         }
         header {
-            background-color: #333;
+            background-color: null;
             color: white;
             padding: 20px;
             width: 100%;
@@ -53,8 +56,8 @@
             background-color: #004494;
         }
         footer {
-            background-color: #222;
-            color: white;
+            background-color: white;
+            color: black;
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -66,9 +69,12 @@
 <body>
 <header>Welcome to the Employee Database</header>
 <div class="container">
-    <p>This is part 3 of my project!</p>
-    <p>This is the final version of my project which incorporates the back end to the front end.</p>
-    <p>This application displays my learning journey so far for Java, IntelliJ, Spring Boot framework using dependencies such as Web server, Thymeleaf, H2, JPA</p>
+    <p>Part 3 of my project!</p>
+    <p>This is the final version of my project that incorporates both the back end to the front end to display a fullstack project.</p>
+    <p>In this database you can update, insert, delete and retrieve employees.</p>
+    <p>I created this application to display my learning journey so far.</p>
+    <p>I have learnt Java with Spring Boot framework using dependencies such as Web server, Thymeleaf, H2 console using SQL, JPA.
+    <p>I have used IntelliJ IDE to build my project.</p>
     <p>
         <button onclick="window.location.href='/employees'">View Employee Database</button>
         <button onclick="window.location.href='/employees/add'">Add New Employee</button>

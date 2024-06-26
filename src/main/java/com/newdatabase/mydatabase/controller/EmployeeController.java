@@ -22,8 +22,4 @@ public class EmployeeController {
     public EmployeeController (EmployeeRepository repository){
         this.repository = repository;
     }
-//    @GetMapping ()
-//    public List<Employee> findAll(){
-//        return repository.findAll();
-//    }
 }
