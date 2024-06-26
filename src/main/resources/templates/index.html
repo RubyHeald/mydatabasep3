@@ -4,41 +4,77 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
         header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    font-family: 'Poppins',sans-serif;
-}
-        body{
-    background-color: white;
-    max-width: 700px;
-    margin: auto;
-    padding: 20;
-    font-family: 'Poppins',sans-serif;
-
-}
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .container {
+            background: #fff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 20px;
+        }
+        p {
+            color: #333;
+            margin: 15px 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004494;
+        }
         footer {
-	background-color: #222;
-	color: white;
-	text-align: flex-end;
-	padding: 10px 0;
-    justify-content: flex-start;
-}
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 <header>Welcome to the Employee Database</header>
-<p>This is part 3 of my project</p>
-<p>The Database is the final version of the project which incorporates the back end to the front end</p>
-<p>This application displays my learning journey for Java, IntelliJ, Springboot framework using dependencies such as Web server, Thymleaf, H2, JPA</p>
-<p>
-<!--        <a href="/employees">View Employee Database</a>-->
-    <button onclick="window.location.href='/employees'">View Employee Database</button>
-
-    <button onclick="window.location.href='/employees/add'">Add New Employee</button>
-</p>
+<div class="container">
+    <p>This is part 3 of my project!</p>
+    <p>This is the final version of my project which incorporates the back end to the front end.</p>
+    <p>This application displays my learning journey so far for Java, IntelliJ, Spring Boot framework using dependencies such as Web server, Thymeleaf, H2, JPA</p>
+    <p>
+        <button onclick="window.location.href='/employees'">View Employee Database</button>
+        <button onclick="window.location.href='/employees/add'">Add New Employee</button>
+    </p>
+</div>
+<footer>©Ruby Heald </footer>
 </body>
-<footer>EmployeeDatabase2024 C Ruby Heald</footer>
 </html>
+
