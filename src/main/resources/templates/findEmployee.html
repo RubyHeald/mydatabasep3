@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Employee</title>
+    <style>
+        body {
+            font-family: 'Poppins',sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://img.freepik.com/free-photo/3d-render-network-communications-background-with-low-poly-plexus-design_1048-15687.jpg?w=826&t=st=1719435315~exp=1719435915~hmac=2184a30ffe0e3f0351db0c2986599a3944794b930d702a2dd3813dc3d9226402");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            text-align: left;
+        }
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Find Employee</h1>
+    <form th:action="@{/employees/find}" method="post">
+        <label for="id">Employee ID:</label>
+        <input type="number" id="id" name="id" required>
+        <button type="submit">Find</button>
+    </form>
+    <a href="/employees">Back to Employee List</a>
+</div>
+</body>
+</html>

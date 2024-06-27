@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Database</title>
+    <title>Employee Details</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins',sans-serif;
             margin: 0;
             padding: 0;
             background-image: url("https://img.freepik.com/free-photo/3d-render-network-communications-background-with-low-poly-plexus-design_1048-15687.jpg?w=826&t=st=1719435315~exp=1719435915~hmac=2184a30ffe0e3f0351db0c2986599a3944794b930d702a2dd3813dc3d9226402");
@@ -17,14 +17,6 @@
             justify-content: center;
             height: 100vh;
             text-align: center;
-        }
-        header {
-            color: white;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 20px;
         }
         .container {
             background: #fff;
@@ -48,11 +40,11 @@
             background-color: #0056b3;
             color: white;
         }
-        td a {
+        a {
             color: #0056b3;
             text-decoration: none;
         }
-        td a:hover {
+        a:hover {
             text-decoration: underline;
         }
         button {
@@ -72,39 +64,32 @@
     </style>
 </head>
 <body>
-<header>Employee Database</header>
 <div class="container">
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="employee : ${employees}">
-            <td th:text="${employee.id}"></td>
-            <td th:text="${employee.firstName}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.email}"></td>
-            <td>
-                <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a> |
-                <a th:href="@{'/employees/delete/' + ${employee.id}}"
-                   onclick="return confirm('Are you sure you want to delete this employee from the database?');">
-                    Delete
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <p>
-        <button onclick="window.location.href='/employees/add'">Add New Employee</button>
-        <button onclick="window.location.href='/employees/find'">Find Employee</button>
-        <button onclick="window.location.href='/'">Home</button>
-    </p>
+    <h1>Employee Details</h1>
+    <div th:if="${employee != null}">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td th:text="${employee.id}"></td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td th:text="${employee.firstName}"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td th:text="${employee.lastName}"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td th:text="${employee.email}"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${employee == null}">
+        <p>Employee not found.</p>
+    </div>
+    <button onclick="window.location.href='/employees'">Back to Employee List</button>
 </div>
 </body>
 </html>

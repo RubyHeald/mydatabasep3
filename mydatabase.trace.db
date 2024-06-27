@@ -209,3 +209,9 @@ DELETE FROM employee WHERE id 28 [42000-224]
 2024-06-26 21:01:32.447674+01:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM employee WHERE id [*]'28'"; SQL statement:
 DELETE FROM employee WHERE id '28' [42000-224]
+2024-06-27 11:18:35.109010+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * [*]employee"; SQL statement:
+SELECT * employee [42000-224]
+2024-06-27 11:31:25.470498+01:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EMPLOYEES" not found; SQL statement:
+SELECT * FROM employees ORDER BY hire_date DESC [42102-224]

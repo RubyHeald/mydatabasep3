@@ -8,12 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.Executor;
 
 @Controller
 public class HomeController {
 
-//    private static final Runnable ALTER =  ;
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -40,11 +38,41 @@ public class HomeController {
         employeeRepository.save(employee);
         return "redirect:/employees"; // Back to the employee list view
     }
+
     @GetMapping("/employees/delete/{id}")
     public String deleteEmployee(@PathVariable("id") Long id) {
         employeeRepository.deleteById(id);
         return "redirect:/employees"; // Back to the employee list view
     }
-}
 
+    @GetMapping("/employees/edit/{id}")
+    public String showEditEmployeeForm(@PathVariable("id") Long id, Model model) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid employee Id:" + id));
+        model.addAttribute("employee", employee);
+        return "editEmployee"; // Returns editEmployee.html
+    }
+
+    @PostMapping("/employees/edit/{id}")
+    public String updateEmployee(@PathVariable("id") Long id, @ModelAttribute Employee employee) {
+        employeeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid employee Id:" + id));
+        employee.setId(id);
+        employeeRepository.save(employee);
+        return "redirect:/employees"; // Back to the employee list view
+    }
+
+    @GetMapping("/employees/find")
+    public String showFindEmployeeForm() {
+        return "findEmployee"; // Returns findEmployee.html
+    }
+
+    @PostMapping("/employees/find")
+    public String findEmployee(@RequestParam("id") Long id, Model model) {
+        Employee employee = employeeRepository.findById(id)
+                .orElse(null);
+        model.addAttribute("employee", employee);
+        return "employeeDetails"; // Returns employeeDetails.html
+    }
+}
 
